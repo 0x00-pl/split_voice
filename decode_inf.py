@@ -6,11 +6,14 @@ def get_data(lines):
     for line64 in lines:
         line = base64.b64decode(line64)
         line_sep = line.split()
-        print(line, line64)
         if len(line_sep) > 3:
             [name, start, length, *ohers] = line_sep
             if int(length) > 0:
                 out.append([name.decode('utf8'), int(start), int(length)])
+            else:
+                print('[waring]: bad index: ', line)
+        else:
+            print('[waring]: bad line: ', line, line64.strip())
     return out
 
 

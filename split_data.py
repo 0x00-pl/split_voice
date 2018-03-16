@@ -1,5 +1,6 @@
 import decode_inf
 import os
+import sys
 
 def main(base_path):
     inf_path = os.path.join(base_path, 'inf.d')
@@ -19,4 +20,5 @@ def main(base_path):
 
 
 if __name__ == '__main__':
-    main('.')
+    base_path = sys.argv[1] if len(sys.argv) > 1 else '.'
+    main(base_path)
